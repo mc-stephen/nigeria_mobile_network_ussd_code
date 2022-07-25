@@ -13,16 +13,19 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    themeBox = Hive.box<bool>('theme');
-    var themeDB = themeBox.get('useLightTheme');
-    lightTheme =
-        themeDB == null ? lightTheme : themeBox.get('useLightTheme') as bool;
     super.initState();
+    themeBox = Hive.box<bool>('theme');
+    if (themeBox.isNotEmpty) {
+      bool theme = themeBox.getAt(0) as bool;
+      lightTheme = theme;
+      return;
+    }
+    lightTheme = true;
   }
 
   rebuild() {
-    themeBox.put('useLightTheme', !lightTheme);
-    lightTheme = themeBox.get('useLightTheme') as bool;
+    themeBox.putAt(0, !lightTheme);
+    lightTheme = themeBox.getAt(0) as bool;
     setState(() {});
   }
 
@@ -31,17 +34,15 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: ThemeColor().lightOpacity,
       appBar: MyAppBar(
-        title: 'All 9ja netwok codes',
+        title: 'All 9ja netwok USSD codes',
         onPressed: (String value) {},
       ),
-      body: Body(
-        onPressed: (String value) {},
-      ),
+      body: const Body(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => rebuild(),
-        child: Icon(changeThemeIcon()),
         elevation: 2.0,
+        onPressed: () => rebuild(),
         backgroundColor: ThemeColor().primaryColor,
+        child: Icon(themeIcon()),
       ),
     );
   }
@@ -52,14 +53,8 @@ class _HomeState extends State<Home> {
 //==========================================
 late Box<bool> themeBox;
 
-changeThemeIcon() {
-  late IconData iconMode;
-  if (lightTheme == true) {
-    return iconMode = Icons.nightlight;
-  } else {
-    return iconMode = Icons.brightness_high_rounded;
-  }
-}
+themeIcon() =>
+    lightTheme ? Icons.nightlight_round : Icons.brightness_high_rounded;
 
 const List<String> networkNames = ['MTN', 'AIRTEL', '9MOBILE', 'GLO'];
 const List<String> networkImages = [
@@ -73,8 +68,7 @@ const List<String> networkImages = [
 // BODY
 //==============================================================
 class Body extends StatelessWidget {
-  final ValueChanged<String> onPressed;
-  const Body({Key? key, required this.onPressed}) : super(key: key);
+  const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,15 +82,6 @@ class Body extends StatelessWidget {
             for (int i = 0; i < 4; i++)
               GestureDetector(
                 onTap: () {
-                  // networkNames[i] == 'MTN'
-                  //     ? Navigator.pushNamed(context, route.mtnPage)
-                  //     : networkNames[i] == 'AIRTEL'
-                  //         ? Navigator.pushNamed(context, route.airtelPage)
-                  //         : networkNames[i] == '9MOBILE'
-                  //             ? Navigator.pushNamed(context, route.etisalatPage)
-                  //             : networkNames[i] == 'GLO'
-                  //                 ? Navigator.pushNamed(context, route.gloPage)
-                  //                 : null;
                   Navigator.pushNamed(context, route.codePage, arguments: {});
                 },
                 child: networkBox(networkNames[i], networkImages[i]),

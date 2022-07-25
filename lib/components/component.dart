@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nigeria_mobile_network_ussd_code/routes/route.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:nigeria_mobile_network_ussd_code/theme/theme.dart';
+import 'package:nigeria_mobile_network_ussd_code/routes/route.dart';
 
 //=====================================================================
 // USSD CODE PAGE ARGUMENT
