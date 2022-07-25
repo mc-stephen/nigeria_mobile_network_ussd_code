@@ -12,7 +12,7 @@ Future<void> main() async {
   await Hive.openBox('glo');
   await Hive.openBox('airtel');
   await Hive.openBox('9mobile');
-  await Hive.openBox('onlineJson');
+  await Hive.openBox('onlineData');
   await Hive.openBox<bool>('theme');
 
   runApp(const MaterialApp(
