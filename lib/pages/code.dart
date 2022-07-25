@@ -1,5 +1,5 @@
-import 'package:naija_network_ussd_code/components/reuses_widget.dart';
-import 'package:naija_network_ussd_code/theme/theme.dart';
+import 'package:nigeria_mobile_network_ussd_code/components/component.dart';
+import 'package:nigeria_mobile_network_ussd_code/theme/theme.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 

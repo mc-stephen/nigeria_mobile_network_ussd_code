@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.naija_network_ussd_code">
    <application
-        android:label="naija_network_ussd_code"
+        android:label="nigeria_mobile_network_ussd_code"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

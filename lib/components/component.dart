@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:naija_network_ussd_code/theme/theme.dart';
+import 'package:nigeria_mobile_network_ussd_code/theme/theme.dart';
 
 //=====================================================================
 // USSD CODE PAGE ARGUMENT
@@ -160,4 +160,20 @@ class TextWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+//==============================================================
+/// SNACK BAR WIDGET
+//==============================================================
+class SnackBarWidget extends SnackBar {
+  const SnackBarWidget({
+    Key? key,
+    required super.content,
+    super.backgroundColor = Colors.pink,
+  }) : super(key: key);
+}
+
+showSnackBar(msg) {
+  BuildContext v = navigatorKey.currentContext as BuildContext;
+  ScaffoldMessenger.of(v).showSnackBar(SnackBarWidget(content: Text(msg)));
 }

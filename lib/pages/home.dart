@@ -1,8 +1,8 @@
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
-import 'package:naija_network_ussd_code/theme/theme.dart';
-import 'package:naija_network_ussd_code/routes/route.dart' as route;
-import 'package:naija_network_ussd_code/components/reuses_widget.dart';
+import 'package:nigeria_mobile_network_ussd_code/theme/theme.dart';
+import 'package:nigeria_mobile_network_ussd_code/routes/route.dart' as route;
+import 'package:nigeria_mobile_network_ussd_code/components/component.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
