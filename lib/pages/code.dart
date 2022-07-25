@@ -3,13 +3,13 @@ import 'package:naija_network_ussd_code/theme/theme.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 
-class Glo extends StatefulWidget {
-  const Glo({Key? key}) : super(key: key);
+class CodePage extends StatefulWidget {
+  const CodePage({Key? key}) : super(key: key);
   @override
-  State<Glo> createState() => _GloState();
+  State<CodePage> createState() => _CodePageState();
 }
 
-class _GloState extends State<Glo> {
+class _CodePageState extends State<CodePage> {
   @override
   void initState() {
     gloBox = Hive.box('gloNetwork');

@@ -1,4 +1,4 @@
-# naija_network_ussd_code
+# nigeria_mobile_network_ussd_code_mobile_app
 
 A new Flutter project.
 
