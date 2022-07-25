@@ -4,17 +4,20 @@ import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 
 class CodePage extends StatefulWidget {
-  const CodePage({Key? key}) : super(key: key);
+  final CodePageArgument argument;
+  const CodePage({Key? key, required this.argument}) : super(key: key);
   @override
   State<CodePage> createState() => _CodePageState();
 }
 
 class _CodePageState extends State<CodePage> {
+  final args = ModalRoute.of(context)!.settings.arguments as CodePageArgument;
   @override
   void initState() {
+    super.initState();
     gloBox = Hive.box('gloNetwork');
     rerunFunction();
-    super.initState();
+    print(args);
   }
 
   @override

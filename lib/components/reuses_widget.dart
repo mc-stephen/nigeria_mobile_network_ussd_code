@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:naija_network_ussd_code/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:naija_network_ussd_code/theme/theme.dart';
+
+//=====================================================================
+// USSD CODE PAGE ARGUMENT
+//=====================================================================
+class CodePageArgument {
+  final String networkName;
+  CodePageArgument({required this.networkName});
+}
 
 //=====================================================================
 // URL LUNCHER PACKAGE TO OPEN OR SEND URLS, MSG, PHONE CALLS AND EMAIL

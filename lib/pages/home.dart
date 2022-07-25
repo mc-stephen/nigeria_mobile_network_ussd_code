@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:flutter/material.dart';
 import 'package:naija_network_ussd_code/theme/theme.dart';
-import 'package:naija_network_ussd_code/components/reuses_widget.dart';
 import 'package:naija_network_ussd_code/routes/route.dart' as route;
+import 'package:naija_network_ussd_code/components/reuses_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -88,15 +88,16 @@ class Body extends StatelessWidget {
             for (int i = 0; i < 4; i++)
               GestureDetector(
                 onTap: () {
-                  networkNames[i] == 'MTN'
-                      ? Navigator.pushNamed(context, route.mtnPage)
-                      : networkNames[i] == 'AIRTEL'
-                          ? Navigator.pushNamed(context, route.airtelPage)
-                          : networkNames[i] == '9MOBILE'
-                              ? Navigator.pushNamed(context, route.etisalatPage)
-                              : networkNames[i] == 'GLO'
-                                  ? Navigator.pushNamed(context, route.gloPage)
-                                  : null;
+                  // networkNames[i] == 'MTN'
+                  //     ? Navigator.pushNamed(context, route.mtnPage)
+                  //     : networkNames[i] == 'AIRTEL'
+                  //         ? Navigator.pushNamed(context, route.airtelPage)
+                  //         : networkNames[i] == '9MOBILE'
+                  //             ? Navigator.pushNamed(context, route.etisalatPage)
+                  //             : networkNames[i] == 'GLO'
+                  //                 ? Navigator.pushNamed(context, route.gloPage)
+                  //                 : null;
+                  Navigator.pushNamed(context, route.codePage, arguments: {});
                 },
                 child: networkBox(networkNames[i], networkImages[i]),
               ),

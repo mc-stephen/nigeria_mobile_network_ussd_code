@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naija_network_ussd_code/components/reuses_widget.dart';
 import 'package:naija_network_ussd_code/pages/code.dart';
 import 'package:naija_network_ussd_code/pages/home.dart';
 
@@ -16,7 +17,10 @@ Route<dynamic> controller(RouteSettings settings) {
     case homePage:
       return MaterialPageRoute(builder: (context) => const Home());
     case codePage:
-      return MaterialPageRoute(builder: (context) => const Mtn());
+      CodePageArgument argument = settings.arguments as CodePageArgument;
+      return MaterialPageRoute(
+        builder: (context) => CodePage(argument: argument),
+      );
     default:
       throw ('This route name does not exist');
   }
