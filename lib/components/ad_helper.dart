@@ -9,7 +9,7 @@ class AdHelper {
   //===================================================
   static String get bannerAdUnitId {
     if (Platform.isAndroid) {
-      return "";
+      return "ca-app-pub-3940256099942544/6300978111";
     } else if (Platform.isIOS) {
       return "";
     } else {
@@ -22,7 +22,7 @@ class AdHelper {
   //===================================================
   static String get interstitialAdUnitId {
     if (Platform.isAndroid) {
-      return "";
+      return "ca-app-pub-3940256099942544/8691691433";
     } else if (Platform.isIOS) {
       return "";
     } else {
