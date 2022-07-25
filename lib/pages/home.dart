@@ -11,19 +11,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  //==========================================================
+  //
+  //==========================================================
   @override
   void initState() {
     super.initState();
     themeBox = Hive.box<bool>('theme');
-    if (themeBox.isNotEmpty) {
-      bool theme = themeBox.getAt(0) as bool;
-      lightTheme = theme;
-      return;
-    }
     lightTheme = true;
+    if (themeBox.isEmpty) return;
+    lightTheme = themeBox.getAt(0) as bool;
   }
 
-  rebuild() {
+  //==========================================================
+  //
+  //==========================================================
+  changeTheme() {
     themeBox.putAt(0, !lightTheme);
     lightTheme = themeBox.getAt(0) as bool;
     setState(() {});
@@ -40,7 +43,7 @@ class _HomeState extends State<Home> {
       body: const Body(),
       floatingActionButton: FloatingActionButton(
         elevation: 2.0,
-        onPressed: () => rebuild(),
+        onPressed: () => changeTheme(),
         backgroundColor: ThemeColor().primaryColor,
         child: Icon(themeIcon()),
       ),
